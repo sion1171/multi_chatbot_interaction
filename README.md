@@ -41,7 +41,7 @@ As shown in the videos below, the interface provides a natural conversation expe
    ```sh
    otree zip
    ```
-4. Run otree server
+4. Run oTree server
    ```sh
    otree devserver
    ```
