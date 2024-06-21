@@ -54,7 +54,6 @@ As shown in the videos below, the interface provides a natural conversation expe
 
 For any questions or feedback, please reach out to us:
 
-- **Yoo Jung (Erika) Oh**: [ohyoojun@msu.edu](mailto:ohyoojun@msu.edu)
-- **Sion Yoon**: [yoonsion@msu.edu](mailto:yoonsion@msu.edu)
-- **Taeun Kim**: [kimtaee3@msu.edu](mailto:kimtaee3@msu.edu)
+-**Principal Investigator:** [Yoo Jung (Erika) Oh](mailto:ohyoojun@msu.edu)  
+-**Software Engineer:** [Sion Yoon](mailto:yoonsion@msu.edu), [Taeun Kim](mailto:kimtaee3@msu.edu)
 
