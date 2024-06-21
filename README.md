@@ -19,10 +19,11 @@ The chatroom offers three random scenarios:
 As shown in the videos below, the interface provides a natural conversation experience with typing indicators and profile functions, enhancing user interaction.
 
 <p align="center">
-  <img src="/gif/stc_2.gif" alt="Save the Children Chatbot" style="width: 30%; margin-right: 1%;">
-  <img src="/gif/uni_2.gif" alt="UNICEF Chatbot" style="width: 30%; margin-right: 1%;">
-  <img src="/gif/both.gif" alt="Both Chatbots" style="width: 30%;">
+  <img src="/gif/stc_2.gif" width="30%" />
+  <img src="/gif/uni_2.gif" width="30%" />
+  <img src="/gif/both.gif" width="30%" />
 </p>
+
 
 ### Built With
 - [oTree](https://www.otree.org) - A web framework for behavioural multiplayer experiments.
