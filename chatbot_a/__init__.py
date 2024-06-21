@@ -80,7 +80,7 @@ def custom_export(players):
                 time = r['timestamp']
                 yield [session.code, participant.code, p.condition, sndr, txt, time]
 
-CHATGPT_KEY = environ.get('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')
+CHATGPT_KEY = environ.get('your_chatGPT_API')
 
 def runGPT(inputMessage):
     completion = openai.ChatCompletion.create(
@@ -98,7 +98,7 @@ class chat(Page):  # 채팅 상호작용 페이지
     
     @staticmethod
     def live_method(player: Player, data):
-        openai.api_key = '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'     
+        openai.api_key = 'your_chatGPT_API'     
         if 'text' in data:
             text = data['text']
             inputMsg = {'role': 'user', 'content': text}
