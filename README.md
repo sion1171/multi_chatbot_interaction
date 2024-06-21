@@ -46,10 +46,6 @@ As shown in the videos below, the interface provides a natural conversation expe
    otree devserver
    ```
 
-
-   
-### Built With
-- [oTree](https://www.otree.org) - A web framework for behavioural multiplayer experiments.
 ### Contact
 
 For any questions or feedback, please reach out to us:
@@ -57,3 +53,7 @@ For any questions or feedback, please reach out to us:
 -**Principal Investigator:** [Yoo Jung (Erika) Oh](mailto:ohyoojun@msu.edu)  
 -**Software Engineer:** [Sion Yoon](mailto:yoonsion@msu.edu), [Tae Eun Kim](mailto:kimtaee3@msu.edu)
 
+
+### Citation
+- Chen, D.L., Schonger, M., Wickens, C., 2016. oTree - An open-source platform for laboratory, online and field experiments. Journal of Behavioral and Experimental Finance, vol 9: 88-97.
+- McKenna, C., (2023). oTree GPT. https://github.com/clintmckenna/oTree_gpt
