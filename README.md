@@ -24,9 +24,37 @@ As shown in the videos below, the interface provides a natural conversation expe
   <img src="/gif/both.gif" width="30%" />
 </p>
 
+### Installation Steps
+1. Install oTree and OpenAI API
+   ```sh
+   pip install -r requirements.txt
+   ```
+2. Clone the repository
+   ```sh
+   git clone https://github.com/sion1171/multi_chatbot_interaction.git
+   ```
+3. Navigate to the project directory
+   ```sh
+   cd your-repo-name
+   ```
+3. Zip otree project
+   ```sh
+   otree zip
+   ```
+4. Run otree server
+   ```sh
+   otree devserver
+   ```
 
+
+   
 ### Built With
 - [oTree](https://www.otree.org) - A web framework for behavioural multiplayer experiments.
-### Contributors
-**Principal Investigator:** [Yoo Jung (Erika) Oh](mailto:ohyoojun@msu.edu)  
-**Software Engineer:** [Sion Yoon](mailto:yoonsion@msu.edu), [Taeun Kim](mailto:kimtaee3@msu.edu)
+### Contact
+
+For any questions or feedback, please reach out to us:
+
+- **Yoo Jung (Erika) Oh**: [ohyoojun@msu.edu](mailto:ohyoojun@msu.edu)
+- **Sion Yoon**: [yoonsion@msu.edu](mailto:yoonsion@msu.edu)
+- **Taeun Kim**: [kimtaee3@msu.edu](mailto:kimtaee3@msu.edu)
+
