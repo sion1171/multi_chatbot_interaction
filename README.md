@@ -1,5 +1,5 @@
 # Designing and Evaluating Multi-Chatbot Interface for Human-AI Communication: Preliminary Findings from a Persuasion Task
-##### Created at [Michigan State University](https://msu.edu) by [Yoo Jung (Erika) Oh](mailto:ohyoojun@msu.edu), [Sion Yoon](mailto:yoonsion@msu.edu), and [Taeun Kim](mailto:kimtaee3@msu.edu)
+##### Created at [Michigan State University](https://msu.edu) by [Yoo Jung (Erika) Oh](mailto:ohyoojun@msu.edu), [Sion Yoon](mailto:yoonsion@msu.edu), and [Tae Eun Kim](mailto:kimtaee3@msu.edu)
 ### Introduction
 The dynamics of human-AI communication have evolved significantly with the advent of sophisticated language models such as ChatGPT. While much research has focused on dyadic (one-on-one) human-AI interactions, there remains a significant gap in understanding how humans interact with multiple AI chatbots simultaneously, especially in group settings. This repository is part of a study aimed at exploring these dynamics in a specific context: promoting charitable donations.
 
@@ -55,5 +55,5 @@ As shown in the videos below, the interface provides a natural conversation expe
 For any questions or feedback, please reach out to us:
 
 -**Principal Investigator:** [Yoo Jung (Erika) Oh](mailto:ohyoojun@msu.edu)  
--**Software Engineer:** [Sion Yoon](mailto:yoonsion@msu.edu), [Taeun Kim](mailto:kimtaee3@msu.edu)
+-**Software Engineer:** [Sion Yoon](mailto:yoonsion@msu.edu), [Tae Eun Kim](mailto:kimtaee3@msu.edu)
 
