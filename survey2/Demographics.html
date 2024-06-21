@@ -1,0 +1,120 @@
+{% extends "global/Page.html" %}
+{% block title %}{{ endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Study Invitation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        header {
+            background-color: #18453B;
+            text-align: left;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+        }
+        img.logo {
+            height: 80px;
+            margin-left: 20px;
+        }
+        h3, h4 {
+            color: #18453B;
+        }
+        p {
+            margin-bottom: 1em;
+            font-size: 19px;
+        }
+        footer {
+            font-style: italic;
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            background-color: #eaeaea;
+        }
+        label {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<header>
+    <img src="{{ static 'logo/MSU_logo.png' }}" class="logo"/>
+</header>
+<h3><br>PRE-CONVERSATION SURVEY</h3>
+
+<h4>
+    Please answer the following questions.
+</h4>
+<p>Here are a number of characteristics that may or may not apply to you. For example, do you agree that you are someone who likes to spend time with others? Please select a number for each statement to indicate the extent to which you agree or disagree with that statement.
+    I see Myself as someone who...  
+    </p>
+<p>
+</p>
+
+<form method="post">
+    <table>
+        <tr>
+            <th>Question</th>
+            {% for label in likert_5_labels %}
+            <th>{{ label }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Worries a lot:</td>
+            {% for i in range(1, 6) %}
+            <td style="text-align: center;"><input type="radio" name="worries_a_lot" value="{{ i }}" required></td>
+            {% endfor %}
+            {{ formfield_errors 'worries_a_lot' }}
+        </tr>
+        <tr>
+            <td>Gets nervous easily:</td>
+            {% for i in range(1, 6) %}
+            <td style="text-align: center;"><input type="radio" name="nervous_easily" value="{{ i }}" required></td>
+            {% endfor %}
+            {{ formfield_errors 'nervous_easily' }}
+        </tr>
+        <tr>
+            <td>Remains calm in tense situations:</td>
+            {% for i in range(1, 6) %}
+            <td style="text-align: center;"><input type="radio" name="calm" value="{{ i }}" required></td>
+            {% endfor %}
+            {{ formfield_errors 'calm' }}
+        </tr>
+        <tr>
+            <td>Is talkative:</td>
+            {% for i in range(1, 6) %}
+            <td style="text-align: center;"><input type="radio" name="talkative" value="{{ i }}" required></td>
+            {% endfor %}
+            {{ formfield_errors 'talkative' }}
+        </tr>
+        <tr>
+            <td>Is outgoing, sociable:</td>
+            {% for i in range(1, 6) %}
+            <td style="text-align: center;"><input type="radio" name="outgoing" value="{{ i }}" required></td>
+            {% endfor %}
+            {{ formfield_errors 'outgoing' }}
+        </tr>
+    </table><br>
+    <input type="submit" value="Next">
+</form>
+{% endblock %}

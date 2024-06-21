@@ -1,0 +1,81 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}{{ endblock }}
+
+{{ block content }}
+<head>
+    <meta charset="UTF-8">
+    <title>Study Invitation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif; /* Sets the base font for the page */
+            color: #333; /* Sets the text color to a softer black */
+            line-height: 1.6; /* Improves readability by increasing line height */
+            background-color: #fff; /* Sets a light background color for the entire page */
+        }
+        header {
+            background-color: #18453B; /* Green background for the entire header */
+            text-align: left; /* Aligns content to the left */
+            padding: 10px 0; /* Adjusts padding around the content within the header */
+            display: flex; /* Uses flexbox to align items */
+            align-items: center; /* Aligns items vertically in the center */
+            justify-content: start; /* Aligns content to the start (left) of the header */
+        }
+        img.logo {
+            height: 80px; /* Adjusts the logo height */
+            margin-left: 20px; /* Adds some space from the left edge of the header */
+        }
+        h3, h4 {
+            color: #18453B; /* Adds a touch of color to headings for emphasis */
+        }
+        p {
+            margin-bottom: 1em; /* Adds space after paragraphs to separate text blocks */
+            font-size: 19px; /* Increases the font size for better readability */
+        }
+        footer {
+            font-style: italic; /* Slightly different style for footer to distinguish it */
+            margin-top: 20px; /* Adds space before the footer section */
+            text-align: center; /* Centers footer content */
+            padding: 20px; /* Adds padding to the footer for spacing */
+            background-color: #eaeaea; /* Light background color for footer */
+        }
+        /* Add this part for making labels bold */
+        label {
+            font-weight: bold; /* Default state of labels to not bold */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+
+
+    </style>
+    
+    
+</head>
+<header>
+    <img src="{{ static 'logo/MSU_logo.png' }}" class="logo"/>
+</header>
+<h3><br>POST-CONVERSATION SURVEY</h3>
+
+<h4>
+    Please answer the following questions.
+</h4>
+<p>The following are questions asking your impression of the <b>UNICEF Chatbot</b></p>
+<p>[1 = Disagree strongly; 2 = Disagree a little; 3 = Neutral; no opinion; 4 = Agree a little; 5 = Agree strongly]</p>
+{{ formfields }}
+
+
+{{ next_button }}
+
+{{ endblock }}

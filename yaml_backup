@@ -1,0 +1,360 @@
+apps:
+- bots: ''
+  constants:
+  - datatype: int
+    js_value: null
+    name: PLAYERS_PER_GROUP
+  - datatype: int
+    js_value: 1
+    name: NUM_ROUNDS
+  custom_export: ''
+  doc: ''
+  includable_templates: []
+  models:
+    Group:
+      fields: []
+      methods: []
+    Player:
+      fields: []
+      methods: []
+    Subsession:
+      fields: []
+      methods: []
+  name: Intro
+  pages:
+  - app_after_this_page: null
+    before_next_page: null
+    error_message: null
+    form_fields: null
+    form_model: player
+    get_form_fields: null
+    get_timeout_seconds: null
+    is_displayed: null
+    is_waitpage: false
+    js_vars: null
+    live_method: null
+    name: MyPage
+    template:
+      content: "<section>\n    <h2>Introduction and Purpose</h2>\n    <p>You are being
+        invited to join a research study. The purpose of this study is to test the
+        acceptability and usability of children’s charity chatbots.</p>\n    <p>If
+        you agree to be in this research, you will be asked to complete two sets of
+        surveys including pre-study questionnaire and post-study questionnaire, and
+        engage in an online text-based interaction with a children’s charity chatbots.
+        You will be asked questions about yourself, how easy it is to use the chatbot,
+        and how you feel about the conversations you have with the chatbots after
+        your conversation. It will take about 30 to 45 minutes to complete questionnaires
+        and engage with chatbots.</p>\n    <p>In this study, you will be interacting
+        with chatbots. The study team will not control the conversation or know the
+        chatbot’s responses in advance. There is no direct benefit to you from taking
+        part in this study. We hope that this research will provide information about
+        children’s charities. The risks of this research are minimal. Some of the
+        questions might make you feel uncomfortable or upset. You do not have to answer
+        any of the questions you do not want to answer.</p>\n</section>\n<section>\n
+        \   <h2>Confidentiality</h2>\n    <p>As with all research, there is a chance
+        that confidentiality could be compromised; however, we are taking precautions
+        to minimize this risk. Your responses to the survey questions will not include
+        information that identifies you. This information will be handled as confidentially
+        as possible. However, individuals from UC Davis who oversee research may access
+        your data during audits or other monitoring activities.</p>\n    <p>To minimize
+        the risks of breach of confidentiality, we have strict rules to protect your
+        personal information. This study does not collect any identifying information
+        about you. We will maintain your study data on encrypted computers and access
+        to the information will be limited to only members of the research team who
+        need the access to properly conduct the study. The data we collect as a part
+        of this study may be used to answer other research questions or may be shared
+        with other investigators for other research. The data we will collect does
+        not include any identifiers. We will not ask your consent for the use or sharing
+        of your data in other research.</p>\n</section>\n<section>\n    <h2>Compensation</h2>\n
+        \   <p>To thank you for participating in this study, You will receive 1 SONA
+        credit after you complete the study.</p>\n</section>\n<section>\n    <h2>Rights</h2>\n
+        \   <p>Taking part in research is completely voluntary. You are free to decline
+        to take part in the project. You can decline to answer any questions and you
+        can stop taking part in the project at any time. Whether or not you choose
+        to take part, or answer any question, or stop taking part in the project,
+        there will be no penalty to you or loss of benefits to which you are otherwise
+        entitled.</p>\n</section>\n<footer>\n    <h2>Consent</h2>\n    <p>If you agree
+        to take part in the research, please click on the “Next” button below.</p>\n</footer>\n\n\n\n{{
+        formfields }}\n\n{{ next_button }}"
+      javascript: null
+      title: Study Invitation
+    timeout_seconds: null
+    timer_text: null
+    vars_for_template: null
+- bots: ''
+  constants:
+  - datatype: int
+    js_value: null
+    name: PLAYERS_PER_GROUP
+  - datatype: int
+    js_value: 1
+    name: NUM_ROUNDS
+  custom_export: ''
+  doc: ''
+  includable_templates: []
+  models:
+    Group:
+      fields: []
+      methods: []
+    Player:
+      fields:
+      - datatype: IntegerField
+        kwargs:
+          blank: null
+          choices: null
+          initial: null
+          label:
+            constant: null
+            expr_type: plain
+            js_value: 'What is your age in years? (Write numbers only) '
+          max:
+            constant: null
+            expr_type: plain
+            js_value: 125
+          min:
+            constant: null
+            expr_type: plain
+            js_value: 13
+          widget: null
+        name: age
+      - datatype: StringField
+        kwargs:
+          blank: null
+          choices:
+            constant: null
+            expr_type: plain
+            js_value:
+            - - Yes
+              - Yes
+            - - No
+              - No
+          initial: null
+          label:
+            constant: null
+            expr_type: plain
+            js_value: Are you able to speak and read English?
+          widget:
+            constant: null
+            expr_type: plain
+            js_value: RadioSelect
+        name: English
+      - datatype: StringField
+        kwargs:
+          blank: null
+          choices:
+            constant: null
+            expr_type: plain
+            js_value:
+            - - Male
+              - Male
+            - - Female
+              - Female
+            - - Other
+              - Other
+          initial: null
+          label:
+            constant: null
+            expr_type: plain
+            js_value: What is your sex?
+          widget:
+            constant: null
+            expr_type: plain
+            js_value: RadioSelect
+        name: sex
+      - datatype: StringField
+        kwargs:
+          blank: null
+          choices:
+            constant: null
+            expr_type: plain
+            js_value:
+            - - American Indian or Alaskan Native
+              - American Indian or Alaskan Native
+            - - Asian or Pacific Islander
+              - Asian or Pacific Islander
+            - - Black or African American
+              - Black or African American
+            - - Hispanic/Latino
+              - Hispanic/Latino
+            - - White
+              - White
+            - - Mixed Race
+              - Mixed Race
+            - - Other
+              - Other
+          initial: null
+          label:
+            constant: null
+            expr_type: plain
+            js_value: Please indicate your ethnicity (check all that apply)
+          widget: null
+        name: Race
+      - datatype: StringField
+        kwargs:
+          blank: null
+          choices:
+            constant: null
+            expr_type: plain
+            js_value:
+            - - Amazon’s Alexa
+              - Amazon’s Alexa
+            - - Google Assistant
+              - Google Assistant
+            - - Siri
+              - Siri
+            - - Facebook messenger bot
+              - Facebook messenger bot
+            - - ChatGPT
+              - ChatGPT
+          initial: null
+          label:
+            constant: null
+            expr_type: plain
+            js_value: What types of chatbots have you used before? (check all that
+              apply)
+          widget:
+            constant: null
+            expr_type: plain
+            js_value: RadioSelectHorizontal
+        name: chatbots
+      - datatype: StringField
+        kwargs:
+          blank: null
+          choices:
+            constant: null
+            expr_type: plain
+            js_value:
+            - - ' 1 - Strongly disagree'
+              - ' 1 - Strongly disagree'
+            - - ' 2 - Disagree'
+              - ' 2 - Disagree'
+            - - 3 - Neutral
+              - 3 - Neutral
+            - - 4 - Agree
+              - 4 - Agree
+            - - 5 - Strongly agree
+              - 5 - Strongly agree
+          initial: null
+          label:
+            constant: null
+            expr_type: plain
+            js_value: 'Please select a number for each statement to indicate the extent
+              to which you agree or disagree with that statement.  I see myself as
+              someone who...  Worries a lot '
+          widget:
+            constant: null
+            expr_type: plain
+            js_value: RadioSelect
+        name: num
+      methods: []
+    Subsession:
+      fields: []
+      methods: []
+  name: survey
+  pages:
+  - app_after_this_page: null
+    before_next_page: null
+    error_message: null
+    form_fields:
+    - age
+    - English
+    - sex
+    - Race
+    - chatbots
+    - num
+    form_model: player
+    get_form_fields: null
+    get_timeout_seconds: null
+    is_displayed: null
+    is_waitpage: false
+    js_vars: null
+    live_method: null
+    name: Demographics
+    template:
+      content: "<p>\n    Title of study: Restructuring Human-AI Communication Dynamics:
+        The Potential of Multi-Chatbot Persuasion in Mediated Communication in a Charitable
+        Giving Context\n\nIntroduction and Purpose\nYou are being invited to join
+        a research study. The purpose of this study is to test the acceptability and
+        usability of children’s charity chatbots.\n\nIf you agree to be in this research,
+        you will be asked to complete two sets of surveys including pre-study questionnaire
+        and post-study questionnaire, and engage in an online text-based interaction
+        with a children’s charity chatbots. You will be asked questions about yourself,
+        how easy it is to use the chatbot, and how you feel about the conversations
+        you have with the chatbots after your conversation. It will take about 30
+        to 45 minutes to complete questionnaires and engage with chatbots.\n\nIn this
+        study, you will be interacting with chatbots. The study team will not control
+        the conversation or know the chatbot’s responses in advance. There is no direct
+        benefit to you from taking part in this study. We hope that this research
+        will provide information about children’s charities. The risks of this research
+        are minimal. Some of the questions might make you feel uncomfortable or upset.
+        You do not have to answer any of the questions you do not want to answer.\n\n</p>\n\n{{
+        formfields }}\n\n{{ next_button }}"
+      javascript: null
+      title: Survey
+    timeout_seconds: null
+    timer_text: null
+    vars_for_template: null
+  - app_after_this_page: null
+    before_next_page: null
+    error_message: null
+    form_fields: []
+    form_model: player
+    get_form_fields: null
+    get_timeout_seconds: null
+    is_displayed: null
+    is_waitpage: false
+    js_vars: null
+    live_method: null
+    name: CognitiveReflectionTest
+    template:
+      content: "<p>\n    Please answer the following questions.\n</p>\n\n{{ formfields
+        }}\n\n{{ next_button }}"
+      javascript: null
+      title: Survey
+    timeout_seconds: null
+    timer_text: null
+    vars_for_template: null
+- bots: ''
+  constants:
+  - datatype: int
+    js_value: null
+    name: PLAYERS_PER_GROUP
+  - datatype: int
+    js_value: 1
+    name: NUM_ROUNDS
+  custom_export: ''
+  doc: ''
+  includable_templates: []
+  models:
+    Group:
+      fields: []
+      methods: []
+    Player:
+      fields: []
+      methods: []
+    Subsession:
+      fields: []
+      methods: []
+  name: blank_app
+  pages: []
+css: ''
+mturk_settings: null
+other_settings:
+  DEMO_PAGE_INTRO_HTML: ''
+  LANGUAGE_CODE: en
+  PARTICIPANT_FIELDS: []
+  REAL_WORLD_CURRENCY_CODE: USD
+  SESSION_FIELDS: []
+  USE_POINTS: true
+rooms: []
+session_config_defaults:
+  participation_fee: 0
+  real_world_currency_per_point: 1
+session_configs:
+- app_sequence:
+  - Intro
+  - survey
+  custom_entries: []
+  name: Survey
+  num_demo_participants: null
+shared_out: ''

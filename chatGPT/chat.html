@@ -1,0 +1,182 @@
+{{ extends "chatGPT/Page.html" }}
+
+{{ block title }}
+{{ endblock }}
+
+{{ block scripts }}
+
+   <script>
+        // list of chat messages as JSON dictionaries
+        var chatLogData = [];
+    
+        // timestamp of page loading to determine when messages were sent
+        var timeBase = Date.now();
+    
+        // adapting chat from oTree snippets page
+        var chat_input = document.getElementById('chat_input');
+        
+        chat_input.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                sendMsg();
+            }
+        });
+    
+        // function to log chat
+        function logChat(sender, chatText) {
+            let timestamp = (Date.now() - timeBase) / 1000;
+            
+            // create dictionary for current message info
+            var currentMsg = {
+                sender: sender,
+                text: chatText,
+                timestamp: timestamp
+            };
+    
+            // append chatLogData
+            chatLogData.push(currentMsg);
+    
+            // write chatLog to input field
+            document.getElementById('id_chatLog').value = JSON.stringify(chatLogData);
+        }
+        
+        // function to append text in webpage
+        function sendMsg() {
+            var text = chat_input.value.trim();
+            if (text) {
+                liveSend({'text': text});
+                let msgSpan = document.createElement('span');
+                msgSpan.textContent = text;
+                let row = `<div class="msg selfText">${msgSpan.innerHTML}</div><br/>`;
+                chat_messages.insertAdjacentHTML('beforeend', row);    
+                
+                // scroll messages to bottom
+                chat_messages.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'start' });
+    
+                // append chat log
+                logChat('Participant', text);
+                
+                // display typing indicators for both chatbots after 2 seconds
+                setTimeout(() => {
+                    displayTypingIndicator('botText1', 'Save the Children Chatbot');
+                    displayTypingIndicator('botText2', 'UNICEF Chatbot');
+                }, 500); // 2 seconds delay
+            }
+            chat_input.value = '';
+        }
+
+        function displayTypingIndicator(bot, botName) {
+            let typingIndicator = document.createElement('div');
+            typingIndicator.classList.add('typing-indicator');
+            typingIndicator.innerHTML = `
+                <div class="ticontainer">
+                    <div class="tiblock">
+                        <div class="tidot"></div>
+                        <div class="tidot"></div>
+                        <div class="tidot"></div>
+                    </div>
+                </div>
+            `;
+            let typingIndicatorRow = `<div class="msg ${bot} typing">${typingIndicator.outerHTML}</div>`;
+            chat_messages.insertAdjacentHTML('beforeend', typingIndicatorRow);
+
+            // Scroll messages to bottom
+            chat_messages.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        }
+    
+        // specify messages element
+        var chat_messages = document.getElementById('chat_messages');
+    
+        // function for live receiving from server
+        function liveRecv(data) {
+            // Remove typing indicators before displaying new messages
+            let typingIndicators = document.querySelectorAll('.typing');
+            typingIndicators.forEach(indicator => indicator.remove());
+
+            // Check if message from chatbot A is not null or blank
+            if (data['output_a'].trim() !== "" && data['output_a'] && data['output_a'].trim() !== "null") {
+                // Display message from chatbot A with name
+                let msgSpanA = document.createElement('span');
+                msgSpanA.innerHTML = `<img src="{{ static 'profile/save_the_children.png' }}" class="profile-picture" alt="Chatbot 1 Profile Picture"><b>Save the Children Chatbot</b><br>${data['output_a']}`;
+                let rowA = `<div class="msg botText1">${msgSpanA.outerHTML}</div><br/>`;
+                chat_messages.insertAdjacentHTML('beforeend', rowA);
+            }
+        
+            // Check if message from chatbot B is not null or blank
+            if (data['output_b'].trim() !== "" && data['output_b'] && data['output_b'].trim() !== "null") {
+                // Display message from chatbot B with name
+                let msgSpanB = document.createElement('span');
+                msgSpanB.innerHTML = `<img src="{{ static 'profile/unicef.png' }}" class="profile-picture" alt="Chatbot 2 Profile Picture"><b>UNICEF Chatbot</b><br>${data['output_b']}`;
+                let rowB = `<div class="msg botText2">${msgSpanB.outerHTML}</div><br/>`;
+                chat_messages.insertAdjacentHTML('beforeend', rowB);
+            }
+            
+            // Scroll messages to bottom
+            chat_messages.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+            
+            // Append chat log for both A and B if they're not null/blank
+            if (data['output_a'].trim() !== "") {
+                logChat('Bot A', data['output_a']);
+            }
+            if (data['output_b'].trim() !== "") {
+                logChat('Bot B', data['output_b']);
+            }
+        }
+
+        
+        document.addEventListener("DOMContentLoaded", function (event) {
+            liveSend({});
+        });
+    
+    </script>
+
+{{ endblock }}
+
+
+{{ block content }}
+
+    <!— oTree timer —>
+    <p align="center">
+        Page will auto-advance in:
+        <span style="color:red; font-weight: bold">
+            <span class="otree-timer__time-left"></span>
+        </span>
+        <br>
+    <button class="btn btn-primary btn-large">
+        Next Page
+    </button>
+    
+    </p>
+    
+    <div class="content-container">
+        <div class="light-green-background">
+            <h3>Instructions</h3>
+            <p><b>1. </b>Below the chatroom, you will find a box where you can type in your responses (Click “send” button on the right)</p>
+            <p><b>2. </b>Please begin the conversation.</p>
+            <p><b>3. </b>Please wait to receive responses from the chatbots.</p>
+            <p><b>4. </b>Chat for at least 10 turns before finishing the conversation. This means that you should send your messages 10 times.</p>
+            <p><b>5. </b>Once finished, click next to continue to the next page.</p>
+            <p><b>* If the user's question is not relevant to Save the Children and UNICEF, the chatbots would not respond. 
+                    Depending on the question, either one chatbot or both chatbots may not respond.</b> </p>
+
+
+
+        </div>
+    </div>
+ 
+    <div class="textBox" >
+        <div id="chat_messages">
+        </div>  
+    </div>
+            
+    <div class="inputBox">
+        <div class="typeInputBox">
+            <input type="text" id="chat_input" style="text-align:right;" autofocus>
+            <button type="button" onclick="sendMsg()">Send</button>
+        </div>
+    </div>
+
+    
+    <!— hidden input to save chat log —>
+    <input type='hidden' name='chatLog' value='' id='id_chatLog'/>
+        
+{{ endblock }}

@@ -1,0 +1,107 @@
+{{ extends 'global/Page.html' }}
+
+{{ block content }}
+<head>
+    <meta charset="UTF-8">
+    <title>Study Invitation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif; /* Sets the base font for the page */
+            color: #333; /* Sets the text color to a softer black */
+            line-height: 1.6; /* Improves readability by increasing line height */
+            background-color: #fff; /* Sets a light background color for the entire page */
+        }
+        header {
+            background-color: #18453B; /* Green background for the entire header */
+            text-align: left; /* Aligns content to the left */
+            padding: 10px 0; /* Adjusts padding around the content within the header */
+            display: flex; /* Uses flexbox to align items */
+            align-items: center; /* Aligns items vertically in the center */
+            justify-content: start; /* Aligns content to the start (left) of the header */
+        }
+        img.logo {
+            height: 80px; /* Adjusts the logo height */
+            margin-left: 20px; /* Adds some space from the left edge of the header */
+        }
+        h3, h4 {
+            color: #18453B; /* Adds a touch of color to headings for emphasis */
+        }
+        p {
+            margin-bottom: 1em; /* Adds space after paragraphs to separate text blocks */
+            font-size: 19px; /* Increases the font size for better readability */
+        }
+        footer {
+            font-style: italic; /* Slightly different style for footer to distinguish it */
+            margin-top: 20px; /* Adds space before the footer section */
+            text-align: center; /* Centers footer content */
+            padding: 20px; /* Adds padding to the footer for spacing */
+            background-color: #eaeaea; /* Light background color for footer */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="{{ static 'logo/MSU_logo.png' }}" class="logo"/>
+</header>
+
+
+<section>
+    <h3><br>Title of study</h3>
+    <h4>Restructuring Human-AI Communication Dynamics: The Potential of Multi-Chatbot Persuasion in Mediated Communication in a Charitable Giving Context</h4>
+</section>
+
+<section>
+    <h3><br>Investigator</h3>
+    <p>Yoo Jung (Erika) Oh, Diane Kim, Muhammad Rasul</p>
+</section>
+
+<section>
+    <h3>Introduction and Purpose</h3>
+    <p>You are being invited to join a research study. The purpose of this study is to test the acceptability and usability of children’s charity chatbots.</p>
+    <P>If you agree to be in this research, you will be asked to complete two sets of surveys including pre-study questionnaire and post-study questionnaire, and engage in an online text-based interaction with a children’s charity chatbots. You will be asked questions about your sociodemographic information, chatbot usability, perceptions towards the chatbot, perceptions towards the conversation and/or messages, and charity donation intentions. It will take about 30 minutes to complete questionnaires and engage with chatbots.</P>
+</section>
+
+<section>
+    <h3>Porential Benefits</h3>
+    <p>You may not benefit personally from being in this study.</p>
+</section>
+
+<section>
+    <h3>Potential Risks</h3>
+    <p>There are no foreseeable risks to participating in this study.</p>
+</section>
+
+<section>
+    <h3>Privacy and Confidentiality</h3>
+    <p>The PI and Co-PIs will have password-protected access to the data and they will be stored indefinitely. We will not store identifiable information. Summary of the data may be presented in a conferenced and published in academic journals.</p>
+</section>
+
+<section>
+    <h3>Your rights to participate, say no, or withdraw</h3>
+    <p>You have the right to say no to participate in the research. You can stop at any time after it has already started. There will be no consequences if you stop and you will not be criticized.  You will not lose any benefits that you normally receive.</p>
+</section>
+
+<section>
+    <h3>Costs and Compensation for being in the study</h3>
+    <p>For study compensation, you will receive extra credit.</p>
+</section>
+
+<section>
+    <h3>Questions</h3>
+    <p>If you have any questions about this research, please feel free to contact the investigator at ohyoojun@msu.edu </p>
+</section>
+
+<footer>
+    <h4>If you agree to take part in the research, please click on the “Next” button below.</h4>
+</footer>
+
+
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}

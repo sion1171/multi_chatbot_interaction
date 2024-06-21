@@ -1,0 +1,282 @@
+{{ extends "global/Page.html" }}
+{{ load static otree }}
+
+{{ block app_styles }}
+
+
+<!-- load Roboto font -->
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+  
+<style>
+
+  /* -------------------- global oTree styles -------------------- */ 
+
+  /* body */
+  .otree-body {
+    max-width: 1000px;
+    /* min-width: 1000px; */
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    /* overflow-x: scroll; */
+  }
+
+  /* title */
+  /* .otree-title { */
+   /* text-align: center;  */
+  /* } */
+
+  /* wait page (entire dialogue) */
+  /* .otree-wait-page {} */
+
+  /* wait page (dialogue title) */
+  /* .otree-wait-page__title {} */
+
+  /* wait page (dialogue body) */
+  /* .otree-wait-page__body {} */
+  
+  /* timer */
+  .otree-timer {
+    display: none;
+  }
+
+  /* next button */
+  /* .otree-btn-next {} */
+
+  /* form errors alert */
+  /* .otree-form-errors {} */
+
+
+  /* -------------------- div styles -------------------- */ 
+
+  /* general text box */
+  .textBox {
+    background: white;
+    /* border-color: lightgrey;
+    border-style: solid; */
+    border: 2px solid lightgrey;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    height: 50vh;
+    position:relative; 
+    overflow:auto;  
+  }
+
+  .chat_messages {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+    max-width: 80%; 
+  }
+
+  .inputBox {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .typeInputBox {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+ 
+
+  /* -------------------- text span styles -------------------- */ 
+
+  /* .selfText {
+    background: lightgray;
+    display: inline-block;
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
+    text-align: right;
+    margin-bottom: 5px;
+    padding: 10px 10px 10px 12px;
+    border-radius: 20px;
+    max-width: 80%;
+    height: 100%;
+  } */
+
+  .selfText {
+    background: lightgray;
+    display: block; /* Change from inline-block to block */
+    text-align: left; /* Align text to the left */
+    margin-bottom: 5px;
+    padding: 10px 10px 10px 12px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word; /* Ensure long messages wrap properly */
+    clear: both; /* Ensure each message starts on a new line */
+}
+
+
+  .botText1 {
+    background: rgb(255, 211, 211);
+    color: black;
+    left: 0;
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 10px 10px 10px 12px;
+    border-radius: 20px;
+    max-width: 80%;
+    height: 100%;
+  }
+
+  .botText2 {
+    background: rgb(189, 222, 255);
+    color: black;
+    left: 0;
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 10px 10px 10px 12px;
+    border-radius: 20px;
+    max-width: 80%;
+    height: 100%;
+  }
+
+
+
+  /* -------------------- button styles -------------------- */ 
+
+  input[type="text"] {
+    flex: 1;
+    padding: 0.5rem;
+    border: 2px solid lightgrey;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  input[type=button] {
+    background-color: #38A1F3;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 5px 12px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  button[type="button"] {
+    background-color: lightgrey;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+ 
+  .textBox::-webkit-scrollbar {
+    width: 1vw;
+  }
+  
+  .textBox::-webkit-scrollbar-thumb {
+    background: #667;    
+    border-radius: 2vw;
+  }
+
+  .textBox::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 2vw;
+  }
+
+  .instruction-box {
+    position: fixed;
+    top: 90px; /* Height of the header */
+    left: 0;
+    width: 25%; /* Set width to 25% of the screen width */
+    height: calc(100% - 90px); /* Height minus the header */
+    overflow-y: auto;
+    background-color: #90ee90; /* Changed to light green */
+    padding: 10px;
+    border-right: 1px solid #000000;
+    z-index: 99;
+  }
+  
+/* Instruction Box with Light Green Background */
+.light-green-background {
+  background-color: lightgray; /* Light green color */
+  padding: 10px;
+  border-radius: 5px; /* Optional: adds rounded corners */
+}
+
+
+
+/* Inside your CSS file or style block */
+.profile-picture {
+    width: 50px; /* Adjust the width and height as needed */
+    height: 50px;
+    border-radius: 50%; /* For circular profile pictures */
+    margin-right: 10px; /* Adjust spacing between profile picture and message */
+}
+
+.chatbot-name {
+    font-weight: bold;
+    margin-bottom: 5px; /* Adjust spacing between name and message */
+}
+
+
+
+
+/*chat indicator */
+.tiblock {
+    align-items: center;
+    display: flex;
+    height: 17px;
+}
+
+.ticontainer .tidot {
+    background-color: #90949c;
+}
+
+.tidot {
+    -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+    border-radius: 50%; /* Make the dot more rounded */
+    display: inline-block;
+    height: 12px;
+    margin-right: 6px; /* Increase the space between dots */
+    width: 10px;
+}
+
+
+
+@-webkit-keyframes mercuryTypingAnimation{
+0%{
+  -webkit-transform:translateY(0px)
+}
+28%{
+  -webkit-transform:translateY(-5px)
+}
+44%{
+  -webkit-transform:translateY(0px)
+}
+}
+
+.tidot:nth-child(1){
+-webkit-animation-delay:200ms;
+}
+.tidot:nth-child(2){
+-webkit-animation-delay:300ms;
+}
+.tidot:nth-child(3){
+-webkit-animation-delay:400ms;
+}
+
+.msg {
+    margin-bottom: 30px; /* Adjust margin as needed for spacing */
+}
+
+.typing-indicator {
+        margin-bottom: 5px; /* Ensure typing indicator has the same margin */
+}
+
+.msg.typing {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Adjust as needed */
+    max-width: 8%; /* Adjust the maximum width as needed */
+}
+
+
+</style>
+
+{{ endblock }}
