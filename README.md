@@ -26,26 +26,24 @@ As shown in the videos below, the interface provides a natural conversation expe
 </p>
 
 ## Installation Steps
-1. Install oTree and OpenAI API
+1. Clone the repository
+   ```sh
+   git clone https://github.com/sion1171/multi_chatbot_interaction.git
+   cd multi_chatbot_interaction
+   ```
+2. Install oTree and the OpenAI client
    ```sh
    pip install -r requirements.txt
    ```
-2. Clone the repository
+3. Set your OpenAI API key (the chatbots read it from the environment; never commit it)
    ```sh
-   git clone https://github.com/sion1171/multi_chatbot_interaction.git
+   export OPENAI_API_KEY=sk-...
    ```
-3. Navigate to the project directory
-   ```sh
-   cd your-repo-name
-   ```
-3. Zip otree project
-   ```sh
-   otree zip
-   ```
-4. Run oTree server
+4. Run the oTree dev server
    ```sh
    otree devserver
    ```
+   To package the project for deployment, run `otree zip`.
 
 ## Contact
 

@@ -114,7 +114,7 @@ class chat(Page):  # 채팅 상호작용 페이지
     
     @staticmethod
     def live_method(player: Player, data):
-        openai.api_key = 'your_chatGPT_API'     
+        openai.api_key = environ.get('OPENAI_API_KEY')     
         if 'text' in data:
             text = data['text']
             inputMsg = {'role': 'user', 'content': text}
