@@ -79,7 +79,7 @@
 #                 yield [session.code, participant.code, sndr, txt, time]
                 
 # def runGPT(model, inputMessage):
-#     openai.api_key = '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'  # Replace with your actual API key
+#     openai.api_key = 'REDACTED_OPENAI_API_KEY'  # Replace with your actual API key
 #     completion = openai.ChatCompletion.create(
 #         model=model,
 #         messages=inputMessage,
@@ -296,7 +296,7 @@
         
 #     #     # start GPT with prompt based on randomized condition
 #     #     # set chatgpt api key
-#     #     openai.api_key = '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'
+#     #     openai.api_key = 'REDACTED_OPENAI_API_KEY'
   
 #     #     # load msg
 #     #     messages = json.loads(player.msg)
@@ -324,7 +324,7 @@
 #     #         pass
     
 #     def live_method(player: Player, data):
-#         openai.api_key = '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'        
+#         openai.api_key = 'REDACTED_OPENAI_API_KEY'        
 #         if 'text' in data:
 #             # Grab the text that participant inputs
 #             text = data['text']
